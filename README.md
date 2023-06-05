@@ -17,8 +17,8 @@
 ## Adding the pipeline tests to your repository
 
 The repository containing the tests can be found in the [CI repository](https://m3s.dev/programming2/summer2023/summer2023_ci).
-The instructions for adding the pipeline tests to your repository are available in the readme file of the CI repository.
-You don't have to add or commit the test to this repository, since the pipeline has been configured to use the CI repository automatically.
+The instructions for adding the pipeline tests to your repository are available in the readme file of the CI repository.  
+You don't have to add or commit the tests to this repository, since the pipeline has been configured to use the CI repository automatically.
 The tests are provided for your convenience, and you are not required to use them locally.
 To run tag dependent tests locally, you can remove any row beginning with `@EnabledIf` or `@DisabledIf` from the test classes.
 
