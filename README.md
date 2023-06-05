@@ -13,3 +13,14 @@
   - The custom part can be chosen freely. However, incremental numbers 1,2,3, etc., are recommended.
     Examples: homework1_v1_1, homework1_v1_2, homework1_v2_1, homework1_v2_2
 - When you finish the homework, create a final tag in the following format homeworkX_vY_submission, where X is the homework number, and Y is the version number you have implemented
+
+## Adding the pipeline tests to your repository
+
+The repository containing the tests can be found in the [CI repository](../summer2023_ci).
+The instructions for adding the pipeline tests to your repository are available in the readme file of the CI repository.
+You don't have to add or commit the test to this repository, since the pipeline has been configured to use the CI repository automatically.
+The tests are provided for your convenience, and you are not required to use them locally.
+To run tag dependent tests locally, you can remove any row beginning with `@EnabledIf` or `@DisabledIf` from the test classes.
+
+The tests are provided as a separate repository to make it easier to update the tests in the future.
+Therefore it is important to periodically check that your local tests are up to date with the CI repository.
