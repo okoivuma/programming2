@@ -1,4 +1,4 @@
-# Programming 2 Summer 2023
+# Programming 2 Spring 2024
 
 ## READ the following instructions carefully.
 
@@ -16,7 +16,7 @@
 
 ## Adding the pipeline tests to your repository
 
-The repository containing the tests can be found in the [CI repository](https://m3s.dev/programming2/summer2023/summer2023_ci).
+The repository containing the tests can be found in the [CI repository](https://ips-ci.oulu.fi/programming2/spring2024/spring2024_ci).
 The instructions for adding the pipeline tests to your repository are available in the readme file of the CI repository.  
 You don't have to add or commit the tests to this repository, since the pipeline has been configured to use the CI repository automatically.
 The tests are provided for your convenience, and you are not required to use them locally.
