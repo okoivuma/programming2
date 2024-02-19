@@ -1,21 +1,19 @@
 package dev.m3s.programming2.homework1;
 
-import static dev.m3s.programming2.homework1.ConstantValues.*;
-
 import java.util.Random;
 
 public class Student {
 
-    private String firstName = NO_NAME;
-    private String lastName = NO_NAME;
+    private String firstName = ConstantValues.NO_NAME;
+    private String lastName = ConstantValues.NO_NAME;
     private int id;
     private double bachelorCredits;
     private double masterCredits;
-    private String titleOfMasterThesis = NO_TITLE;
-    private String titleOfBachelorThesis = NO_TITLE;
-    private  int startYear = CURRENT_YEAR;
+    private String titleOfMasterThesis = ConstantValues.NO_TITLE;
+    private String titleOfBachelorThesis = ConstantValues.NO_TITLE;
+    private  int startYear = ConstantValues.CURRENT_YEAR;
     private int graduationYear;
-    private String birthDate = NO_BIRTHDATE;
+    private String birthDate = ConstantValues.NO_BIRTHDATE;
 
 
     public Student(){
@@ -54,7 +52,7 @@ public class Student {
     }
 
     public void setId(final int id) {
-        if (id >= MIN_ID && id <= MAX_ID){
+        if (id >= ConstantValues.MIN_ID && id <= ConstantValues.MAX_ID){
             this.id = id;
         }else {
             this.id = getRandomId();
@@ -66,7 +64,7 @@ public class Student {
     }
 
     public void setBachelorCredits(final double bachelorCredits){
-        if (bachelorCredits >= MIN_CREDITS && bachelorCredits <= MAX_CREDITS){
+        if (bachelorCredits >= ConstantValues.MIN_CREDITS && bachelorCredits <= ConstantValues.MAX_CREDITS){
             this.bachelorCredits = bachelorCredits;
         }
     }
@@ -76,7 +74,7 @@ public class Student {
     }
 
     public void setMasterCredits(final double masterCredits){
-        if (masterCredits >= MIN_CREDITS && masterCredits <= MAX_CREDITS){
+        if (masterCredits >= ConstantValues.MIN_CREDITS && masterCredits <= ConstantValues.MAX_CREDITS){
             this.masterCredits = masterCredits;
         }
     }
@@ -106,7 +104,7 @@ public class Student {
     }
 
     public void setStartYear(final int startYear) {
-        if (2000 < startYear && startYear <= CURRENT_YEAR){
+        if (2000 < startYear && startYear <= ConstantValues.CURRENT_YEAR){
             this.startYear = startYear;
         }
     }
@@ -118,7 +116,7 @@ public class Student {
     public String setGraduationYear(final int graduationYear){
         if (!canGraduate()){
             return "Check the required studies";
-        } else if (graduationYear < startYear || graduationYear > CURRENT_YEAR) {
+        } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR) {
             return "Check graduation year";
         } else {
             this.graduationYear = graduationYear;
@@ -127,13 +125,13 @@ public class Student {
     }
 
     public boolean hasGraduated() {
-        return (graduationYear >= startYear && graduationYear <= CURRENT_YEAR);
+        return (graduationYear >= startYear && graduationYear <= ConstantValues.CURRENT_YEAR);
     }
 
     private boolean canGraduate(){
-        if (bachelorCredits < BACHELOR_CREDITS || masterCredits < MASTER_CREDITS){
+        if (bachelorCredits < ConstantValues.BACHELOR_CREDITS || masterCredits < ConstantValues.MASTER_CREDITS){
             return false;
-        } else if (titleOfBachelorThesis.equals(NO_TITLE) || titleOfMasterThesis.equals(NO_TITLE)){
+        } else if (titleOfBachelorThesis.equals(ConstantValues.NO_TITLE) || titleOfMasterThesis.equals(ConstantValues.NO_TITLE)){
             return false;
         } else {
             return true;
@@ -144,13 +142,13 @@ public class Student {
         if (hasGraduated()){
             return graduationYear - startYear;
         } else {
-            return CURRENT_YEAR - startYear;
+            return ConstantValues.CURRENT_YEAR - startYear;
         }
     }
 
     private int getRandomId(){
         Random ran = new Random();
-        id = ran.nextInt(MAX_ID) + MIN_ID;
+        id = ran.nextInt(ConstantValues.MAX_ID) + ConstantValues.MIN_ID;
         return id;
     }
 
@@ -172,19 +170,19 @@ public class Student {
                 if (checkBirthdate(bDate)) {
 
                     if (!checkValidCharacter(personId)) {
-                        return INCORRECT_CHECKMARK;
+                        return ConstantValues.INCORRECT_CHECKMARK;
                     }
 
                 } else {
-                    return INVALID_BIRTHDAY;
+                    return ConstantValues.INVALID_BIRTHDAY;
                 }
                 birthDate = bDate;
                 return "Ok";
             } else {
-                return INVALID_BIRTHDAY;
+                return ConstantValues.INVALID_BIRTHDAY;
             }
         } else
-            return NO_BIRTHDATE;
+            return ConstantValues.INVALID_BIRTHDAY;
     }
 
     private boolean checkPersonIDNumber(final String personID){
@@ -242,20 +240,20 @@ public class Student {
     }
 
     private String bachelorStatus(){
-        if (bachelorCredits >= BACHELOR_CREDITS){
-            return "All required bachelor credits completed (" + bachelorCredits + "/" + BACHELOR_CREDITS + ")";
+        if (bachelorCredits >= ConstantValues.BACHELOR_CREDITS){
+            return "All required bachelor credits completed (" + bachelorCredits + "/" + ConstantValues.BACHELOR_CREDITS + ")";
         } else {
-            double missing = BACHELOR_CREDITS - bachelorCredits;
-            return "Missing bachelor credits " + missing + "(" + bachelorCredits + "/" + BACHELOR_CREDITS + ")";
+            double missing = ConstantValues.BACHELOR_CREDITS - bachelorCredits;
+            return "Missing bachelor credits " + missing + "(" + bachelorCredits + "/" + ConstantValues.BACHELOR_CREDITS + ")";
         }
     }
 
     private String masterStatus(){
-        if (masterCredits >= MASTER_CREDITS){
-            return "All required master's credits completed (" + masterCredits + "/" + MASTER_CREDITS + ")";
+        if (masterCredits >= ConstantValues.MASTER_CREDITS){
+            return "All required master's credits completed (" + masterCredits + "/" + ConstantValues.MASTER_CREDITS + ")";
         } else {
-            double missing = MASTER_CREDITS - masterCredits;
-            return "Missing master's credits " + missing + "(" + masterCredits + "/" + MASTER_CREDITS + ")";
+            double missing = ConstantValues.MASTER_CREDITS - masterCredits;
+            return "Missing master's credits " + missing + "(" + masterCredits + "/" + ConstantValues.MASTER_CREDITS + ")";
         }
     }
 
@@ -275,3 +273,4 @@ public class Student {
 
     }
 }
+
