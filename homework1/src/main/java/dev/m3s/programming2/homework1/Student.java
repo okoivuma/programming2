@@ -155,33 +155,36 @@ public class Student {
     }
 
     public String setPersonId(final String personId){
-        String year;
-        if (checkPersonIDNumber(personId)){
-            char centChar = personId.charAt(6);
+        if (personId != null && !personId.isEmpty()) {
+            String year;
+            if (checkPersonIDNumber(personId)) {
+                char centChar = personId.charAt(6);
 
-            year = switch (centChar) {
-                case '+' -> "18";
-                case '-' -> "19";
-                case 'A' -> "20";
-                default -> "virheellinen merkki";
-            };
+                year = switch (centChar) {
+                    case '+' -> "18";
+                    case '-' -> "19";
+                    case 'A' -> "20";
+                    default -> "virheellinen merkki";
+                };
 
-            String bDate = personId.substring(0,2) + "." + personId.substring(2,4) + "." + year + personId.substring(4,6);
+                String bDate = personId.substring(0, 2) + "." + personId.substring(2, 4) + "." + year + personId.substring(4, 6);
 
-            if (checkBirthdate(bDate)){
+                if (checkBirthdate(bDate)) {
 
-                if (!checkValidCharacter(personId)){
-                    return INCORRECT_CHECKMARK;
+                    if (!checkValidCharacter(personId)) {
+                        return INCORRECT_CHECKMARK;
+                    }
+
+                } else {
+                    return INVALID_BIRTHDAY;
                 }
-
+                birthDate = bDate;
+                return "Ok";
             } else {
                 return INVALID_BIRTHDAY;
             }
-            birthDate = bDate;
-            return "Ok";
-        } else {
-            return INVALID_BIRTHDAY;
-        }
+        } else
+            return NO_BIRTHDATE;
     }
 
     private boolean checkPersonIDNumber(final String personID){
