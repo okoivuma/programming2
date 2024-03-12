@@ -1,8 +1,8 @@
 package dev.m3s.programming2.homework2;
-
+//package kotiteht2;
 public class Degree {
 
-    static final int MAX_COURSES = 50;
+    private static final int MAX_COURSES = 50;
     private int count;
     private String degreeTitle = ConstantValues.NO_TITLE;
     private String titleOfThesis = ConstantValues.NO_TITLE;
@@ -52,7 +52,7 @@ public class Degree {
     }
 
     public double getCreditsByBase(char base){
-            //TARKISTA
+
         double credits = 0;
         for (StudentCourse course : myCourses ){
             if (course.getCourse() != null && course.getCourse().getCourseBase() == base && isCourseCompleted(course)){
@@ -63,7 +63,7 @@ public class Degree {
     }
 
     public double getCreditsByType(final int courseType){
-        //TARKISTA
+
 
         double credits = 0;
         for (StudentCourse course : myCourses){
@@ -86,7 +86,7 @@ public class Degree {
     }
 
     private boolean isCourseCompleted(StudentCourse c){
-        return  c.isPassed() && c.course != null;
+        return c != null && c.getCourse() != null && c.isPassed();
     }
 
     public void printCourses(){
@@ -109,10 +109,14 @@ public class Degree {
         return allCourses;
     }
 
+    public int getCount(){
+        return count;
+    }
+
     @Override
     public String toString() {
-        return "Degree [Title: " + degreeTitle + " (courses: " + (count + 1) + ")\n" +
+        return "Degree [Title: " + degreeTitle + " (courses: " + count + ")\n" +
                 "        Thesis title: " + titleOfThesis + "\n" +
-                coursesToString();
+                coursesToString() + "]";
     }
 }
