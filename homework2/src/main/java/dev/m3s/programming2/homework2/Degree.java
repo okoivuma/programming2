@@ -99,7 +99,7 @@ public class Degree {
 
     private String coursesToString(){
         int i  = 1;
-        String allCourses = null;
+        String allCourses = "";
         for (StudentCourse course : myCourses){
             if (course != null){
                 allCourses += ("       " + i + ". " +  course + "\n");
@@ -115,8 +115,8 @@ public class Degree {
 
     @Override
     public String toString() {
-        return "Degree [Title: " + degreeTitle + " (courses: " + count + ")\n" +
-                "        Thesis title: " + titleOfThesis + "\n" +
+        return "Degree [Title: \"" + degreeTitle + "\" (courses: " + count + ")\n" +
+                "        Thesis title: \"" + titleOfThesis + "\"\n" +
                 coursesToString() + "]";
     }
 }
