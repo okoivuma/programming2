@@ -50,7 +50,7 @@ public class StudentCourse {
 
     public boolean isPassed(){
         if (course.isNumericGrade()){
-            return gradeNum > 0 && gradeNum < 5;
+            return gradeNum > 0 && gradeNum <= 5;
         } else {
             return gradeNum == 'A';
         }
