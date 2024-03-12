@@ -1,4 +1,7 @@
 package dev.m3s.programming2.homework2;
+//package kotiteht2;
+
+
 
 public class Course {
 
@@ -69,7 +72,7 @@ public class Course {
 
     public void setCourseCode(final int courseCode, char courseBase){
         if (courseCode > 0 && courseCode < 1000000 && (courseBase == 'A'  || courseBase == 'P' || courseBase == 'S')){
-            this.courseCode = String.valueOf(courseCode) + courseBase;
+            this.courseCode = String.valueOf(courseCode) + Character.toUpperCase(courseBase);
         }
     }
 
@@ -107,6 +110,6 @@ public class Course {
 
     @Override
     public String toString(){
-        return "[" + courseCode + " (" + credits + " cr) , " + name + ". " + getCourseTypeString() + ", period: " + period + ".]";
+        return "[" + courseCode + " (" + String.format("%.2f", credits) + " cr), " + name + ". " + getCourseTypeString() + ", period: " + period + ".]";
     }
 }
