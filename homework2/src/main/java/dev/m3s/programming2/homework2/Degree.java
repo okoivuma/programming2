@@ -55,7 +55,7 @@ public class Degree {
 
         double credits = 0;
         for (StudentCourse course : myCourses ){
-            if (course.getCourse() != null && course.getCourse().getCourseBase() == base && isCourseCompleted(course)){
+            if (course != null && course.getCourse() != null && course.getCourse().getCourseBase() == base && isCourseCompleted(course)){
                 credits += course.getCourse().getCredits();
             }
         }
@@ -64,10 +64,10 @@ public class Degree {
 
     public double getCreditsByType(final int courseType){
 
-
         double credits = 0;
         for (StudentCourse course : myCourses){
-            if (course.getCourse() != null && course.getCourse().getCourseType() == courseType && isCourseCompleted(course)){
+
+            if (course != null && course.getCourse() != null && course.getCourse().getCourseType() == courseType && isCourseCompleted(course)){
                 credits += course.getCourse().getCredits();
             }
         }
