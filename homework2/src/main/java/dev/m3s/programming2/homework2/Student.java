@@ -22,7 +22,7 @@ public class Student {
     public Student(String lname, String fname){
         setFirstName(fname);
         setLastName(lname);
-        id = getRandomId();
+        this.id = getRandomId();
     }
 
     public String getFirstName(){
@@ -83,13 +83,13 @@ public class Student {
     }
 
     public void setDegreeTitle(final int i, String dName){
-        if (0 <= i && i < degreeCount){
+        if (0 <= i && i < degreeCount && degrees[i] != null){
             degrees[i].setDegreeTitle(dName);
         }
     }
 
     public boolean addCourse(final int i, StudentCourse course){
-        if (0 < i && i < degreeCount){
+        if (0 < i && i < degreeCount && degrees[i] != null){
             degrees[i].addStudentCourse(course);
             return true;
         } else {
@@ -98,7 +98,7 @@ public class Student {
     }
 
     public int addCourses(final int i, StudentCourse [] courses){
-        if (0 < i && i < degreeCount){
+        if (0 < i && i < degreeCount && degrees[i] != null){
             degrees[i].addStudentCourses(courses);
         }
         return degrees[i].getCount();
@@ -106,7 +106,9 @@ public class Student {
 
     public void printCourses(){
         for (Degree courses : degrees){
-            courses.printCourses();
+            if (courses != null) {
+                courses.printCourses();
+            }
         }
     }
 
@@ -119,7 +121,7 @@ public class Student {
     }
 
     public void setTitleOfThesis(final int i, String title){
-        if (0 < i && i < degreeCount){
+        if (0 < i && i < degreeCount && degrees[i] != null){
             degrees[i].setTitleOfThesis(title);
         }
     }
@@ -132,7 +134,7 @@ public class Student {
     public String setBirthDate(String personId) {
         if (personId == null || personId.isEmpty()) {
             return "No change";
-        } else if (personId.length() != 11 || !(personId.charAt(6) == '+' || personId.charAt(6) == 'A' || personId.charAt(6) == '-')) {
+        } else if (personId.length() != 11 || (personId.charAt(6) != '+' || personId.charAt(6) != 'A' || personId.charAt(6) != '-')) {
             return "No change";
         }
 
@@ -152,7 +154,7 @@ public class Student {
     }
 
     private boolean canGraduate(){
-        if (degrees == null){
+        if (degrees[0] == null || degrees[1] == null){
             return false;
         }
         if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS || degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
