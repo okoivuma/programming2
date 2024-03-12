@@ -1,10 +1,10 @@
 package dev.m3s.programming2.homework2;
-
+//package kotiteht2;
 public class StudentCourse {
 
-    Course course;
-    int gradeNum;
-    int yearCompleted;
+    private Course course;
+    private int gradeNum;
+    private int yearCompleted;
 
     public StudentCourse(){
 
@@ -41,17 +41,19 @@ public class StudentCourse {
     }
 
     private boolean checkGradeValidity(final int gradeNum){
-        if (gradeNum >= 0 && gradeNum <= 5){
-            return true;
-        } else if ((char) gradeNum == 'F' || (char) gradeNum == 'A'){
-            return true;
+        if (course.isNumericGrade()){
+            return gradeNum >= 0 && gradeNum <= 5;
         } else {
-            return false;
+            return gradeNum == 'F' || gradeNum == 'A';
         }
     }
 
     public boolean isPassed(){
-        return gradeNum != 0 && gradeNum != 'F';
+        if (course.isNumericGrade()){
+            return gradeNum > 0 && gradeNum < 5;
+        } else {
+            return gradeNum == 'A';
+        }
     }
 
     public int getYear(){
