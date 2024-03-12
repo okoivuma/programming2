@@ -71,8 +71,10 @@ public class Course {
     }
 
     public void setCourseCode(final int courseCode, char courseBase){
+        courseBase = Character.toUpperCase(courseBase);
         if (courseCode > 0 && courseCode < 1000000 && (courseBase == 'A'  || courseBase == 'P' || courseBase == 'S')){
-            this.courseCode = String.valueOf(courseCode) + Character.toUpperCase(courseBase);
+            this.courseCode = String.valueOf(courseCode) + (courseBase);
+            this.courseBase = (courseBase);
         }
     }
 
@@ -110,6 +112,6 @@ public class Course {
 
     @Override
     public String toString(){
-        return "[" + courseCode + " (" + String.format("%.2f", credits) + " cr), " + name + ". " + getCourseTypeString() + ", period: " + period + ".]";
+        return "[" + courseCode + " (" + String.format("%.2f", credits) + " cr), \"" + name + "\". " + getCourseTypeString() + ", period: " + period + ".]";
     }
 }
