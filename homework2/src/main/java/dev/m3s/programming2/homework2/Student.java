@@ -1,5 +1,5 @@
 package dev.m3s.programming2.homework2;
-
+//package kotiteht2;
 import java.util.Random;
 
 public class Student {
@@ -88,16 +88,20 @@ public class Student {
         }
     }
 
-    public void addCourse(final int i, StudentCourse course){
+    public boolean addCourse(final int i, StudentCourse course){
         if (0 < i && i < degreeCount){
             degrees[i].addStudentCourse(course);
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public void addCourses(final int i, StudentCourse [] courses){
+    public int addCourses(final int i, StudentCourse [] courses){
         if (0 < i && i < degreeCount){
             degrees[i].addStudentCourses(courses);
         }
+        return degrees[i].getCount();
     }
 
     public void printCourses(){
@@ -148,6 +152,9 @@ public class Student {
     }
 
     private boolean canGraduate(){
+        if (degrees == null){
+            return false;
+        }
         if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS || degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
             return false;
         } else if (degrees[0].getDegreeTitle().equals(ConstantValues.NO_TITLE) || degrees[1].getDegreeTitle().equals(ConstantValues.NO_TITLE)){
