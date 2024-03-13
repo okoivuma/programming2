@@ -44,7 +44,8 @@ public class StudentCourse {
         if (course.isNumericGrade()){
             return gradeNum >= 0 && gradeNum <= 5;
         } else {
-            return gradeNum == 'F' || gradeNum == 'A';
+            char gradeChar = (char) gradeNum;
+            return gradeChar == 'F' || gradeChar == 'A';
         }
     }
 
@@ -52,7 +53,8 @@ public class StudentCourse {
         if (course.isNumericGrade()){
             return gradeNum > 0 && gradeNum <= 5;
         } else {
-            return gradeNum == 'A';
+            char gradeChar = (char) gradeNum;
+            return gradeChar == 'A';
         }
     }
 
