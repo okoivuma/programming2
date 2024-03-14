@@ -20,9 +20,9 @@ public class Student {
         id = getRandomId();
     }
     public Student(String lname, String fname){
+        this();
         setFirstName(fname);
         setLastName(lname);
-        this.id = getRandomId();
     }
 
     public String getFirstName(){
