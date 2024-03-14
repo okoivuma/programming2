@@ -54,7 +54,7 @@ public class StudentCourse {
             return gradeNum > 0 && gradeNum <= 5;
         } else {
             char gradeChar = (char) gradeNum;
-            return gradeChar == 'A';
+            return gradeChar == 'A' || gradeChar == 'a';
         }
     }
 
