@@ -1,6 +1,5 @@
 package dev.m3s.programming2.homework2;
-//package kotiteht2;
-import kotiteht2.ConstantValues;
+
 
 import java.util.Random;
 
