@@ -8,7 +8,7 @@ public class Student {
     private String firstName = ConstantValues.NO_NAME;
     private String lastName = ConstantValues.NO_NAME;
     private int id;
-    private  int startYear = ConstantValues.CURRENT_YEAR;
+    private int startYear = ConstantValues.CURRENT_YEAR;
     private int graduationYear;
     private int degreeCount = 3;
     // degree 0 -> bachelor
