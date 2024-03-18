@@ -1,5 +1,7 @@
 package dev.m3s.programming2.homework2;
 //package kotiteht2;
+import kotiteht2.Degree;
+
 import java.util.Random;
 
 public class Student {
@@ -18,6 +20,9 @@ public class Student {
 
     public Student(){
         id = getRandomId();
+        for (int i = 0; i < degreeCount; i++){
+            degrees[i] = new Degree();
+        }
     }
     public Student(String lname, String fname){
         this();
@@ -74,7 +79,7 @@ public class Student {
     public String setGraduationYear(final int graduationYear){
         if (!canGraduate()){
             return "Check the amount of required credits";
-        } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR) {
+        } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000) {
             return "Check graduation year";
         } else {
             this.graduationYear = graduationYear;
@@ -168,7 +173,6 @@ public class Student {
             return false;
         }
         return true;
-
     }
 
     public int getStudyYears(){
