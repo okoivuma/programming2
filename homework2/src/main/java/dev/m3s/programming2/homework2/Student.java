@@ -12,7 +12,7 @@ public class Student {
     private int graduationYear;
     private int degreeCount = 3;
     // degree 0 -> bachelor
-    // degreee 1 -> master
+    // degree 1 -> master
     // degree 2 -> reserved for doctoral studies
     private Degree [] degrees = new Degree[degreeCount];
     private String birthDate = ConstantValues.NO_BIRTHDATE;
