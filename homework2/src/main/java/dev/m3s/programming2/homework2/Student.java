@@ -100,9 +100,9 @@ public class Student {
                 degrees[i].addStudentCourse(course);
                 return true;
             }
-        } else {
-            return false;
         }
+        return false;
+
     }
 
     public int addCourses(final int i, StudentCourse [] courses){
@@ -163,13 +163,12 @@ public class Student {
 
     private boolean canGraduate(){
 
-        if (degrees[0].getCredits >= ConstantValues.BACHELOR_CREDITS && degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS){
-            if (!degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE)  && !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE){
+        if (degrees[0].getCredits() >= ConstantValues.BACHELOR_CREDITS && degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS){
+            if (!degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE)  && !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE)){
                 return true;
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     public int getStudyYears(){
