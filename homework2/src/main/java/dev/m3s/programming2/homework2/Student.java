@@ -98,10 +98,13 @@ public class Student {
     }
 
     public int addCourses(final int i, StudentCourse [] courses){
-        if (0 < i && i < degreeCount && degrees[i] != null){
-            degrees[i].addStudentCourses(courses);
+        int addedCourses = 0;
+        for (StudentCourse course : courses){
+            if (addCourse(i, course)){
+                addedCourses++;
+            }
         }
-        return degrees[i].getCount();
+        return addedCourses;
     }
 
     public void printCourses(){
@@ -140,11 +143,11 @@ public class Student {
 
         PersonID student = new PersonID();
         String result = student.setPersonId(personId);
-        if (!result.equals("OK")){
-            return "No change";
+        if (result.equals("OK")){
+            birthDate = student.getBirthDate();
+            return birthDate;
         }
-        birthDate = student.getBirthDate();
-        return "OK";
+        return "No change";
     }
 
 
@@ -157,13 +160,15 @@ public class Student {
         if (degrees[0] == null || degrees[1] == null){
             return false;
         }
-        if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS || degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
+        if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS ||
+                degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
             return false;
-        } else if (degrees[0].getDegreeTitle().equals(ConstantValues.NO_TITLE) || degrees[1].getDegreeTitle().equals(ConstantValues.NO_TITLE)){
+        } else if (degrees[0].getDegreeTitle().equals(ConstantValues.NO_TITLE) ||
+                degrees[1].getDegreeTitle().equals(ConstantValues.NO_TITLE)){
             return false;
-        } else {
-            return true;
         }
+        return true;
+
     }
 
     public int getStudyYears(){
