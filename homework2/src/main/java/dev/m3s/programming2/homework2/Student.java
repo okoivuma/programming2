@@ -1,5 +1,5 @@
 package dev.m3s.programming2.homework2;
-
+//package kotiteht2;
 
 import java.util.Random;
 
@@ -76,7 +76,7 @@ public class Student {
     }
 
     public String setGraduationYear(final int graduationYear){
-        
+
         if (!canGraduate() && graduationYear > 2000) {
             return "Check the amount of required credits";
         } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000){
@@ -96,8 +96,10 @@ public class Student {
 
     public boolean addCourse(final int i, StudentCourse course){
         if (0 < i && i < degreeCount && course != null){
-            degrees[i].addStudentCourse(course);
-            return true;
+            if (degrees[i].getCount() < 50){
+                degrees[i].addStudentCourse(course);
+                return true;
+            }
         } else {
             return false;
         }
@@ -126,7 +128,7 @@ public class Student {
     }
 
     public void setTitleOfThesis(final int i, String title){
-        if (0 < i && i < degreeCount){
+        if (0 < i && i < degreeCount && title != null){
             degrees[i].setTitleOfThesis(title);
         }
     }
@@ -160,14 +162,13 @@ public class Student {
     }
 
     private boolean canGraduate(){
-        if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS ||
-                degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
-            return false;
-        } else if (degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE) ||
-                degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE)){
-            return false;
+
+        if (degrees[0].getCredits >= ConstantValues.BACHELOR_CREDITS && degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS){
+            if (!degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE)  && !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE){
+                return true;
+            }
         } else {
-            return true;
+            return false;
         }
     }
 
