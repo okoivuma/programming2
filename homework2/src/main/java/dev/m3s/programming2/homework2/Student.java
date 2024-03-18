@@ -75,15 +75,16 @@ public class Student {
     }
 
     public String setGraduationYear(final int graduationYear){
-        if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000){
-            return "Check graduation year";
-        } else if (!canGraduate()) {
+        if (!canGraduate()) {
             return "Check the amount of required credits";
+        } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000){
+            return "Check graduation year";
         } else {
             this.graduationYear = graduationYear;
             return "Ok";
         }
     }
+
 
     public void setDegreeTitle(final int i, String dName){
         if (0 <= i && i < degreeCount && degrees[i] != null){
@@ -136,7 +137,7 @@ public class Student {
     public String setBirthDate(String personId) {
         if (personId == null || personId.isEmpty()) {
             return "No change";
-        } else if (personId.length() != 11 || (personId.charAt(6) != '+' || personId.charAt(6) != 'A' || personId.charAt(6) != '-')) {
+        } else if (personId.length() != 11 || (personId.charAt(6) != '+' && personId.charAt(6) != 'A' && personId.charAt(6) != '-')) {
             return "No change";
         }
 
@@ -161,8 +162,8 @@ public class Student {
         if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS ||
                 degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
             return false;
-        } else if (degrees[0].getDegreeTitle().equals(ConstantValues.NO_TITLE) ||
-                degrees[1].getDegreeTitle().equals(ConstantValues.NO_TITLE)){
+        } else if (degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE) ||
+                degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE)){
             return false;
         }
         return true;
