@@ -76,7 +76,9 @@ public class Student {
     }
 
     public String setGraduationYear(final int graduationYear){
-
+        if (graduationYear < 2000){
+            return "Check graduation year";
+        }
         if (canGraduate()) {
             if (graduationYear > 2000){
                 if (startYear <= graduationYear && graduationYear <= ConstantValues.CURRENT_YEAR){
@@ -164,14 +166,16 @@ public class Student {
         return (graduationYear >= startYear && graduationYear <= ConstantValues.CURRENT_YEAR);
     }
 
-    private boolean canGraduate(){
+    private boolean canGraduate() {
 
-        if (degrees[0].getCredits() >= ConstantValues.BACHELOR_CREDITS && degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS){
-            if (!degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE)  && !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE)){
-                return true;
-            }
-        }
-        return false;
+        boolean bachelorCompleted = degrees[0].getCredits() >= ConstantValues.BACHELOR_CREDITS &&
+                !degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
+
+        boolean masterCompleted = degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS &&
+                !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
+
+
+        return bachelorCompleted || masterCompleted;
     }
 
     public int getStudyYears(){
