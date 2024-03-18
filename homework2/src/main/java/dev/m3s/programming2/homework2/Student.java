@@ -1,5 +1,5 @@
 package dev.m3s.programming2.homework2;
-
+//package kotiteht2;
 
 
 
@@ -78,9 +78,7 @@ public class Student {
     }
 
     public String setGraduationYear(final int graduationYear){
-        if (graduationYear < 2000 || graduationYear > ConstantValues.CURRENT_YEAR || startYear > graduationYear){
-            return "Check graduation year";
-        }
+
         if (canGraduate()) {
             if (graduationYear > 2000){
                 if (startYear <= graduationYear && graduationYear <= ConstantValues.CURRENT_YEAR){
@@ -170,10 +168,6 @@ public class Student {
 
         boolean bachelorCompleted = degrees[0].getCredits() >= ConstantValues.BACHELOR_CREDITS &&
                 !degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
-
-        boolean masterCompleted = degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS &&
-                !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
-
 
         return bachelorCompleted;
     }
