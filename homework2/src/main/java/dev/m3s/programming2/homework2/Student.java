@@ -1,6 +1,5 @@
 package dev.m3s.programming2.homework2;
-
-
+//package kotiteht2;
 import java.util.Random;
 
 public class Student {
@@ -8,11 +7,11 @@ public class Student {
     private String firstName = ConstantValues.NO_NAME;
     private String lastName = ConstantValues.NO_NAME;
     private int id;
-    private int startYear = ConstantValues.CURRENT_YEAR;
+    private  int startYear = ConstantValues.CURRENT_YEAR;
     private int graduationYear;
     private int degreeCount = 3;
     // degree 0 -> bachelor
-    // degree 1 -> master
+    // degreee 1 -> master
     // degree 2 -> reserved for doctoral studies
     private Degree [] degrees = new Degree[degreeCount];
     private String birthDate = ConstantValues.NO_BIRTHDATE;
@@ -76,13 +75,13 @@ public class Student {
     }
 
     public String setGraduationYear(final int graduationYear){
-        if (!canGraduate()){
-            return "Check the amount of required credits";
-        } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000) {
+        if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000){
             return "Check graduation year";
+        } else if (!canGraduate()) {
+            return "Check the amount of required credits";
         } else {
             this.graduationYear = graduationYear;
-            return "OK";
+            return "Ok";
         }
     }
 
@@ -93,7 +92,7 @@ public class Student {
     }
 
     public boolean addCourse(final int i, StudentCourse course){
-        if (0 < i && i < degreeCount && degrees[i] != null){
+        if (0 < i && i < degreeCount && course != null){
             degrees[i].addStudentCourse(course);
             return true;
         } else {
@@ -113,22 +112,18 @@ public class Student {
 
     public void printCourses(){
         for (Degree courses : degrees){
-            if (courses != null) {
-                courses.printCourses();
-            }
+            courses.printCourses();
         }
     }
 
     public void printDegrees(){
         for (Degree courses : degrees){
-            if (courses != null) {
-                System.out.println(courses);
-            }
+            System.out.println(courses);
         }
     }
 
     public void setTitleOfThesis(final int i, String title){
-        if (0 < i && i < degreeCount && degrees[i] != null){
+        if (0 < i && i < degreeCount){
             degrees[i].setTitleOfThesis(title);
         }
     }
@@ -147,11 +142,12 @@ public class Student {
 
         PersonID student = new PersonID();
         String result = student.setPersonId(personId);
-        if (result.equals("OK")){
+        if (result.equals("Ok")){
             birthDate = student.getBirthDate();
             return birthDate;
+        } else {
+            return "No change";
         }
-        return "No change";
     }
 
 
@@ -161,9 +157,7 @@ public class Student {
     }
 
     private boolean canGraduate(){
-        if (degrees[0] == null || degrees[1] == null){
-            return false;
-        }
+
         if (degrees[0].getCredits() < ConstantValues.BACHELOR_CREDITS ||
                 degrees[1].getCredits() < ConstantValues.MASTER_CREDITS){
             return false;
