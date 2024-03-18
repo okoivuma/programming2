@@ -1,6 +1,8 @@
 package dev.m3s.programming2.homework2;
 //package kotiteht2;
 
+import kotiteht2.ConstantValues;
+
 import java.util.Random;
 
 public class Student {
@@ -76,7 +78,7 @@ public class Student {
     }
 
     public String setGraduationYear(final int graduationYear){
-        if (graduationYear < 2000){
+        if (graduationYear < 2000 || graduationYear > ConstantValues.CURRENT_YEAR || startYear > graduationYear){
             return "Check graduation year";
         }
         if (canGraduate()) {
@@ -85,8 +87,6 @@ public class Student {
                     this.graduationYear = graduationYear;
                     return "Ok";
                 }
-            } else {
-                return "Check graduation year";
             }
         }
         return "Check amount of required credits";
@@ -175,7 +175,7 @@ public class Student {
                 !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
 
 
-        return bachelorCompleted || masterCompleted;
+        return bachelorCompleted;
     }
 
     public int getStudyYears(){
