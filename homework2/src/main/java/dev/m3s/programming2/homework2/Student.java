@@ -77,14 +77,17 @@ public class Student {
 
     public String setGraduationYear(final int graduationYear){
 
-        if (!canGraduate() && graduationYear > 2000) {
-            return "Check the amount of required credits";
-        } else if (graduationYear < startYear || graduationYear > ConstantValues.CURRENT_YEAR || graduationYear < 2000){
-            return "Check graduation year";
-        } else {
-            this.graduationYear = graduationYear;
-            return "Ok";
+        if (canGraduate()) {
+            if (graduationYear > 2000){
+                if (startYear <= graduationYear && graduationYear <= ConstantValues.CURRENT_YEAR){
+                    this.graduationYear = graduationYear;
+                    return "Ok";
+                }
+            } else {
+                return "Check graduation year";
+            }
         }
+        return "Check amount of required credits";
     }
 
 
