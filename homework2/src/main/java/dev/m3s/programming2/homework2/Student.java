@@ -85,7 +85,7 @@ public class Student {
                     this.graduationYear = graduationYear;
                     return "Ok";
                 }
-            }
+            } return "Check graduation year";
         }
         return "Check amount of required credits";
     }
@@ -98,7 +98,7 @@ public class Student {
     }
 
     public boolean addCourse(final int i, StudentCourse course){
-        if (0 < i && i < degreeCount && course != null){
+        if (0 <= i && i < degreeCount && course != null){
             if (degrees[i].getCount() < 50){
                 degrees[i].addStudentCourse(course);
                 return true;
@@ -131,7 +131,7 @@ public class Student {
     }
 
     public void setTitleOfThesis(final int i, String title){
-        if (0 < i && i < degreeCount && title != null){
+        if (0 <= i && i < degreeCount && title != null){
             degrees[i].setTitleOfThesis(title);
         }
     }
