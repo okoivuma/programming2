@@ -3,6 +3,8 @@ package dev.m3s.programming2.homework2;
 
 
 
+import kotiteht2.ConstantValues;
+
 import java.util.Random;
 
 public class Student {
@@ -169,7 +171,10 @@ public class Student {
         boolean bachelorCompleted = degrees[0].getCredits() >= ConstantValues.BACHELOR_CREDITS &&
                 !degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
 
-        return bachelorCompleted;
+        boolean masterCompleted = degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS &&
+                !degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
+
+        return bachelorCompleted && masterCompleted;
     }
 
     public int getStudyYears(){
