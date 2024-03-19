@@ -167,7 +167,7 @@ public class Student {
                 !degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
 
         boolean masterCompleted = degrees[1].getCredits() >= ConstantValues.MASTER_CREDITS &&
-                !degrees[0].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
+                !degrees[1].getTitleOfThesis().equals(ConstantValues.NO_TITLE);
 
         return bachelorCompleted && masterCompleted;
     }
