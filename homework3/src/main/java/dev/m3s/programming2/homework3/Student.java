@@ -12,7 +12,7 @@ public class Student extends Person{
 
     public Student(String lname, String fname){
         super(lname, fname);
-        id = getRandomId(ConstantValues.MIN_ID, ConstantValues.MAX_ID);
+        id = getRandomId(ConstantValues.MIN_STUDENT_ID, ConstantValues.MAX_STUDENT_ID);
         degrees.add(new Degree());
         degrees.add(new Degree());
         degrees.add(new Degree());
@@ -26,7 +26,7 @@ public class Student extends Person{
     }
 
     public void setId(final int id) {
-        if (id >= ConstantValues.MIN_ID && id <= ConstantValues.MAX_ID){
+        if (id >= ConstantValues.MIN_STUDENT_ID && id <= ConstantValues.MAX_STUDENT_ID){
             this.id = id;
         }
     }
