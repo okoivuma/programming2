@@ -58,7 +58,7 @@ abstract class Person {
 
     protected int getRandomId(final int min, final int max){
         Random ran = new Random();
-        return ran.nextInt(max) + min;
+        return ran.nextInt(max - min + 1) + min;
     }
 
     abstract String getIdString();
