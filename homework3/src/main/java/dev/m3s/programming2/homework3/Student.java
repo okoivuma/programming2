@@ -184,7 +184,7 @@ public class Student extends Person{
     }
 
 
-    /*private double getAverage(int type){
+    private double getAverage(int type){
         double gpa = 0.0;
         int degreeCount = 0;
         for (Degree degree : degrees) {
@@ -200,9 +200,9 @@ public class Student extends Person{
         } else {
             return 0.0;
         }
-    }*/
+    }
 
-    private String calculateTotalGPA() {
+    /*private String calculateTotalGPA() {
         List<Double> gpaList = getGPA(2);
         double totalGPA = 0.0;
 
@@ -218,7 +218,7 @@ public class Student extends Person{
         }
 
         return String.format("%.2f", totalGPA);
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -227,16 +227,16 @@ public class Student extends Person{
                 "     Date of birth: " + getBirthDate() + "\n" +
                 "     Status: " + status() + "\n" +
                 "     Start year: " + startYear + " (Studies have lasted for " + getStudyYears() + " years)" + "\n" +
-                "     Total credits: " +  totalCredits() + " (GPA = " + calculateTotalGPA() + ")\n" +
+                "     Total credits: " +  totalCredits() + " (GPA = " + getAverage(2) + ")\n" +
                 "     Bachelor credits: " + degrees.get(0).getCredits() + "\n" +
                 "         " + bachelorStatus() + "\n" +
                 "         " + mandatoryBachelorStatus() + "\n" +
-                "          GPA of Bachelor studies: " + degrees.getBachelorGPA + "\n" +
+                "          GPA of Bachelor studies: " + degrees.getBachelorGPA() + "\n" +
                 "          Title of BSc Thesis: " + degrees.get(0).getTitleOfThesis() +
                 "     Master credits: " + degrees.get(1).getCredits() + "\n" +
                 "         " + masterStatus() + "\n" +
                 "         " + mandatoryMasterStatus() + "\n" +
-                "          GPA of Master studies: " + degrees.getMasterGPA + "\n" +
+                "          GPA of Master studies: " + degrees.getMasterGPA() + "\n" +
                 "          Title of BSc Thesis: " + degrees.get(1).getTitleOfThesis();
     }
 
