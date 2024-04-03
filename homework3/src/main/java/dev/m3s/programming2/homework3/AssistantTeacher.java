@@ -1,4 +1,4 @@
-//package kotiteht3;
+
 package dev.m3s.programming2.homework3;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class AssistantTeacher extends Employee implements Teacher, Payment {
     }
 
     public String getEmployeeIdString(){
-        return "OY_ASSISTANT";
+        return "OY_ASSISTANT_";
     }
 
     public String getCourses(){
