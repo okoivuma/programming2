@@ -184,12 +184,22 @@ public class Student extends Person{
     }
 
 
-    private String getAverage(int type){
+    private double getAverage(int type){
         double gpa = 0.0;
-        for (Degree degree : degrees){
-            gpa += degree.getGPA(type).get(2);
+        int degreeCount = 0;
+        for (Degree degree : degrees) {
+            List<Double> gpaList = degree.getGPA(type);
+            if (!gpaList.isEmpty()) {
+                gpa += gpaList.get(2);
+                degreeCount++;
+            }
         }
-        return String.format("%.2f", gpa);
+
+        if (degreeCount > 0){
+            return gpa / degreeCount;
+        } else {
+            return 0.0;
+        }
     }
 
     @Override
