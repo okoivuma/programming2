@@ -202,23 +202,43 @@ public class Student extends Person{
         }
     }
 
-    /*private String calculateTotalGPA() {
-        List<Double> gpaList = getGPA(2);
-        double totalGPA = 0.0;
+    
 
-
-        if (!gpaData.isEmpty()) {
-            double sum = gpaList.get(0);
-            double count = gpaList.get(1);
-
-
-            if (count != 0) {
-                totalGPA = sum / count;
+    private double calculateBachelorGPA(){
+        double gpa = 0.0;
+        int degreeCount = 0;
+        for (Degree degree : degrees) {
+            List<Double> gpaList = degree.getBachelorGPA();
+            if (!gpaList.isEmpty()) {
+                gpa += gpaList.get(2);
+                degreeCount++;
             }
         }
 
-        return String.format("%.2f", totalGPA);
-    }*/
+        if (degreeCount > 0){
+            return gpa / degreeCount;
+        } else {
+            return 0.0;
+        }
+    }
+
+    private double calculateMasterGPA(){
+        double gpa = 0.0;
+        int degreeCount = 0;
+        for (Degree degree : degrees) {
+            List<Double> gpaList = degree.MasterGPA();
+            if (!gpaList.isEmpty()) {
+                gpa += gpaList.get(2);
+                degreeCount++;
+            }
+        }
+
+        if (degreeCount > 0){
+            return gpa / degreeCount;
+        } else {
+            return 0.0;
+        }
+    }
 
     @Override
     public String toString() {
@@ -231,12 +251,12 @@ public class Student extends Person{
                 "     Bachelor credits: " + degrees.get(0).getCredits() + "\n" +
                 "         " + bachelorStatus() + "\n" +
                 "         " + mandatoryBachelorStatus() + "\n" +
-                "          GPA of Bachelor studies: " + degrees.getBachelorGPA() + "\n" +
+                "          GPA of Bachelor studies: " + calculateBachelorGPA() + "\n" +
                 "          Title of BSc Thesis: " + degrees.get(0).getTitleOfThesis() +
                 "     Master credits: " + degrees.get(1).getCredits() + "\n" +
                 "         " + masterStatus() + "\n" +
                 "         " + mandatoryMasterStatus() + "\n" +
-                "          GPA of Master studies: " + degrees.getMasterGPA() + "\n" +
+                "          GPA of Master studies: " + calculateMasterGPA() + "\n" +
                 "          Title of BSc Thesis: " + degrees.get(1).getTitleOfThesis();
     }
 
