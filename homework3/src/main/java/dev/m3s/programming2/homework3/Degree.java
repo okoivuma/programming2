@@ -135,6 +135,40 @@ public class Degree {
         return result;
     }
 
+    public double getBachelorGPA(){
+        double sum = 0.0;
+        int count = 0;
+        double average = 0.0;
+
+        for (StudentCourse course : myCourses){
+            if (course.getCourse().isNumericGrade() && degreeTitle.equals("Bachelor of Science")){
+                sum += course.getGradeNum();
+                count++;
+            }
+        }
+        if (count > 0){
+            average = sum / count;
+        }
+        return average;
+    }
+
+    public double MasterGPA(){
+        double sum = 0.0;
+        int count = 0;
+        double average = 0.0;
+
+        for (StudentCourse course : myCourses){
+            if (course.getCourse().isNumericGrade() && degreeTitle.equals("Master of Science")){
+                sum += course.getGradeNum();
+                count++;
+            }
+        }
+        if (count > 0){
+            average = sum / count;
+        }
+        return average;
+    }
+
 
     private String coursesToString(){
         int i  = 1;
