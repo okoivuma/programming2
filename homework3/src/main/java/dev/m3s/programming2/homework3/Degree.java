@@ -125,6 +125,7 @@ public class Degree {
 
         if (count != 0){
             average = sum / count;
+            average = Math.round(average * 100.0) / 100.0;
         }
 
         result.add(sum);
