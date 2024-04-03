@@ -202,14 +202,14 @@ public class Student extends Person{
         }
     }*/
 
-    private String calculateTotalGPA(int type) {
-        List<Double> gpaData = getGPA(type);
+    private String calculateTotalGPA() {
+        List<Double> gpaList = getGPA(2);
         double totalGPA = 0.0;
 
 
         if (!gpaData.isEmpty()) {
-            double sum = gpaData.get(0);
-            double count = gpaData.get(1);
+            double sum = gpaList.get(0);
+            double count = gpaList.get(1);
 
 
             if (count != 0) {
@@ -227,16 +227,16 @@ public class Student extends Person{
                 "     Date of birth: " + getBirthDate() + "\n" +
                 "     Status: " + status() + "\n" +
                 "     Start year: " + startYear + " (Studies have lasted for " + getStudyYears() + " years)" + "\n" +
-                "     Total credits: " +  totalCredits() + " (GPA = " + getAverage(2) + ")\n" +
+                "     Total credits: " +  totalCredits() + " (GPA = " + calculateTotalGPA() + ")\n" +
                 "     Bachelor credits: " + degrees.get(0).getCredits() + "\n" +
                 "         " + bachelorStatus() + "\n" +
                 "         " + mandatoryBachelorStatus() + "\n" +
-                "          GPA of Bachelor studies: " + getAverage(0) + "\n" +
+                "          GPA of Bachelor studies: " + degrees.getBachelorGPA + "\n" +
                 "          Title of BSc Thesis: " + degrees.get(0).getTitleOfThesis() +
                 "     Master credits: " + degrees.get(1).getCredits() + "\n" +
                 "         " + masterStatus() + "\n" +
                 "         " + mandatoryMasterStatus() + "\n" +
-                "          GPA of Master studies: " + getAverage(1) + "\n" +
+                "          GPA of Master studies: " + degrees.getMasterGPA + "\n" +
                 "          Title of BSc Thesis: " + degrees.get(1).getTitleOfThesis();
     }
 
