@@ -184,7 +184,7 @@ public class Student extends Person{
     }
 
 
-    */private double getAverage(int type){
+    /*private double getAverage(int type){
         double gpa = 0.0;
         int degreeCount = 0;
         for (Degree degree : degrees) {
@@ -217,7 +217,7 @@ public class Student extends Person{
             }
         }
 
-        return String.format(".2f", totalGPA);
+        return String.format("%.2f", totalGPA);
     }
 
     @Override
