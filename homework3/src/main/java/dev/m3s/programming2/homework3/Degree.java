@@ -135,9 +135,10 @@ public class Degree {
         return result;
     }
 
-    public double getBachelorGPA(){
+    public List getBachelorGPA(){
+        List<Double> result = new ArrayList<>();
         double sum = 0.0;
-        int count = 0;
+        double count = 0;
         double average = 0.0;
 
         for (StudentCourse course : myCourses){
@@ -149,12 +150,16 @@ public class Degree {
         if (count > 0){
             average = sum / count;
         }
-        return average;
+        result.add(sum);
+        result.add(count);
+        result.add(average);
+        return result;
     }
 
-    public double MasterGPA(){
+    public List MasterGPA(){
+        List<Double> result = new ArrayList<>();
         double sum = 0.0;
-        int count = 0;
+        double count = 0;
         double average = 0.0;
 
         for (StudentCourse course : myCourses){
@@ -166,7 +171,10 @@ public class Degree {
         if (count > 0){
             average = sum / count;
         }
-        return average;
+        result.add(sum);
+        result.add(count);
+        result.add(average);
+        return result;
     }
 
 
