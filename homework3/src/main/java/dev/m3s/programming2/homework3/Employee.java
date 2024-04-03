@@ -31,6 +31,16 @@ abstract class Employee extends Person implements Payment{
         }
     }
 
+    public Payment getPayment(){
+        return payment;
+    }
+
+    public void setPayment(Payment payment){
+        if (payment != null){
+            this.payment = payment;
+        }
+    }
+
     public double calculatePayment(){
 
         if (payment != null){
