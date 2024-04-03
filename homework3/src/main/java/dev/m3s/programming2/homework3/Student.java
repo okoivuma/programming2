@@ -1,5 +1,4 @@
 package dev.m3s.programming2.homework3;
-//package kotiteht3;
 
 
 import java.util.ArrayList;
@@ -78,6 +77,9 @@ public class Student extends Person{
 
     public int addCourses(final int i, List<StudentCourse> courses){
         int addedCourses = 0;
+        if (courses == null){
+            return 0;
+        }
         for (StudentCourse course : courses){
             if (addCourse(i, course)){
                 addedCourses++;
