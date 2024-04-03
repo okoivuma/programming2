@@ -189,7 +189,7 @@ public class Student extends Person{
         for (Degree degree : degrees){
             gpa += degree.getGPA(type).get(2);
         }
-        return String.format(".2f", gpa);
+        return String.format("%.2f", gpa);
     }
 
     @Override
