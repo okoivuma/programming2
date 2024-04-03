@@ -1,6 +1,5 @@
-
 package dev.m3s.programming2.homework3;
-//package kotiteht3;
+
 
 import java.time.Year;
 
@@ -11,8 +10,10 @@ public class ConstantValues {
     public static final String INVALID_BIRTHDAY = "Invalid birthday!";
     public static final String INCORRECT_CHECKMARK = "Incorrect check mark!";
     public static final String NOT_AVAILABLE = "Not available";
-    public static final int MIN_ID = 1;
-    public static final int MAX_ID = 100;
+    public static final int MIN_STUDENT_ID = 1;
+    public static final int MAX_STUDENT_ID = 100;
+    public static final int MIN_EMP_ID = 2001;
+    public static final int MAX_EMP_ID = 3000
     public static final double MIN_CREDITS = 0.0;
     public static final double MAX_CREDITS = 300.0;
     public static final double BACHELOR_CREDITS = 180.0;
