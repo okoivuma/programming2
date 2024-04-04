@@ -184,60 +184,36 @@ public class Student extends Person{
     }
 
 
-    private double getAverage(int type){
+    private String getAverage(){
+
+        Degree bachelor = degrees.get(0);
+        Degree master = degrees.get(1);
         double gpa = 0.0;
-        int degreeCount = 0;
-        for (Degree degree : degrees) {
-            List<Double> gpaList = degree.getGPA(type);
-            if (!gpaList.isEmpty()) {
-                gpa += gpaList.get(2);
-                degreeCount++;
-            }
+
+        double sum = bachelor.getGPA(2).get(0) + master.getGPA(2).get(0);
+        double gpaCount = bachelor.getGPA(2).get(1) + master.getGPA(2).get(1);
+
+
+        if (gpaCount > 0){
+            gpa = sum / gpaCount;
         }
 
-        if (degreeCount > 0){
-            return gpa / degreeCount;
-        } else {
-            return 0.0;
-        }
+        return String.format("%.2f", gpa);
+        
     }
 
-    
+    private String calculateBachelorGPA(){
+        Degree bachelor = degrees.get(0);
+        double gpa = bachelor.getGPA(2).get(2);
 
-    private double calculateBachelorGPA(){
-        double gpa = 0.0;
-        int degreeCount = 0;
-        for (Degree degree : degrees) {
-            List<Double> gpaList = degree.getBachelorGPA();
-            if (!gpaList.isEmpty()) {
-                gpa += gpaList.get(2);
-                degreeCount++;
-            }
-        }
-
-        if (degreeCount > 0){
-            return gpa / degreeCount;
-        } else {
-            return 0.0;
-        }
+        return String.format("%.2f", gpa);        
     }
 
-    private double calculateMasterGPA(){
-        double gpa = 0.0;
-        int degreeCount = 0;
-        for (Degree degree : degrees) {
-            List<Double> gpaList = degree.MasterGPA();
-            if (!gpaList.isEmpty()) {
-                gpa += gpaList.get(2);
-                degreeCount++;
-            }
-        }
+    private String calculateMasterGPA(){
+        Degree master = degrees.get(1);
+        double gpa = master.getGPA(2).get(2);
 
-        if (degreeCount > 0){
-            return gpa / degreeCount;
-        } else {
-            return 0.0;
-        }
+        return String.format("%.2f", gpa);
     }
 
     @Override
@@ -247,7 +223,7 @@ public class Student extends Person{
                 "     Date of birth: " + getBirthDate() + "\n" +
                 "     Status: " + status() + "\n" +
                 "     Start year: " + startYear + " (Studies have lasted for " + getStudyYears() + " years)" + "\n" +
-                "     Total credits: " +  totalCredits() + " (GPA = " + getAverage(2) + ")\n" +
+                "     Total credits: " +  totalCredits() + " (GPA = " + getAverage() + ")\n" +
                 "     Bachelor credits: " + degrees.get(0).getCredits() + "\n" +
                 "         " + bachelorStatus() + "\n" +
                 "         " + mandatoryBachelorStatus() + "\n" +

@@ -135,49 +135,6 @@ public class Degree {
         return result;
     }
 
-    public List getBachelorGPA(){
-        List<Double> result = new ArrayList<>();
-        double sum = 0.0;
-        double count = 0;
-        double average = 0.0;
-
-        for (StudentCourse course : myCourses){
-            if (course.getCourse().isNumericGrade() && degreeTitle.equals("Bachelor of Science")){
-                sum += course.getGradeNum();
-                count++;
-            }
-        }
-        if (count > 0){
-            average = sum / count;
-        }
-        result.add(sum);
-        result.add(count);
-        result.add(average);
-        return result;
-    }
-
-    public List MasterGPA(){
-        List<Double> result = new ArrayList<>();
-        double sum = 0.0;
-        double count = 0;
-        double average = 0.0;
-
-        for (StudentCourse course : myCourses){
-            if (course.getCourse().isNumericGrade() && degreeTitle.equals("Master of Science")){
-                sum += course.getGradeNum();
-                count++;
-            }
-        }
-        if (count > 0){
-            average = sum / count;
-        }
-        result.add(sum);
-        result.add(count);
-        result.add(average);
-        return result;
-    }
-
-
     private String coursesToString(){
         int i  = 1;
         String allCourses = "";
