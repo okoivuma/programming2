@@ -1,3 +1,4 @@
+package dev.m3s.programming2.homework4;
 import java.io.IOException;
 import java.util.Scanner;
 public class Main {
