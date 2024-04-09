@@ -48,7 +48,7 @@ public class Hangman {
         return maskedWord;
     }
 
-    public int getNumOfGuesses() {
+    public int guessesLeft() {
         return numOfGuesses;
     }
 
