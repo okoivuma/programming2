@@ -28,7 +28,9 @@ public class Hangman {
             }
             return true;
         } else {
-            numOfGuesses--;
+            if (numOfGuesses > 0){
+                numOfGuesses--;
+            }
             if (!guessedChars.contains(guessedChar)){
                 guessedChars.add(guessedChar);
             }
