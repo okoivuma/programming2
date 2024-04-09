@@ -38,6 +38,6 @@ public class Main {
             System.out.println("Sorry, you lost!");
             System.out.println("The hidden word was: " + newgame.word());
         }
-
+        scanner.close();
     }
 }
