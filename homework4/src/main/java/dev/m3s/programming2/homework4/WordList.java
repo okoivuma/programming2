@@ -10,16 +10,12 @@ import java.util.List;
 public class WordList {
     private List<String> words = new ArrayList<>();
 
-    public WordList(String filename){
+    public WordList(String filename) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String row;
             while ((row = reader.readLine()) != null) {
                 words.add(row.toLowerCase());
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("Unable to read file");
         }
     }
 
