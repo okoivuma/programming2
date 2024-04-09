@@ -15,7 +15,7 @@ public class Main {
             System.out.println("The hidden word...");
             System.out.println(newgame.getMaskedWord());
 
-            System.out.println("Guesses left: " + newgame.getNumOfGuesses());
+            System.out.println("Guesses left: " + newgame.guessesLeft());
             System.out.println("Guessed letters: " + newgame.guesses() + "\n");
 
             System.out.println("Guess a letter: ");
