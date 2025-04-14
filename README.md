@@ -4,7 +4,7 @@ This repository contains source code for homework assignments in the Java Object
 
 # Contents
 
-Homework 1 - 3 represents a database of teachers, students and courses. 
+Homework 1 - 3 represents a software to host data of teachers, students and courses. 
 - Main learning objectives: OOP concepts as encapsulation, polymorphism, abstraction and class relationships
 
 Homework 4 is a simple Hangman game in java.
